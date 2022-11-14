@@ -1,5 +1,25 @@
 <header class="fixed-top">
-  <button (click)="toggle()">open / close</button>
+  <!-- syntaxe ngIf -->
+  <!-- <button *ngIf="close" (click)="toggle()">open</button>
+  <button *ngIf="!close" (click)="toggle()">close</button> -->
+
+  <!-- syntaxe ngIf / else -->
+  <!-- <button *ngIf="close; else elseBlock" (click)="toggle()">open</button>
+  <ng-template #elseBlock>
+    <button (click)="toggle()">close</button>
+  </ng-template> -->
+
+  <!-- syntaxe ngIf then / else -->
+  <ng-container *ngIf="close; then thenBlock else elseBlock"></ng-container>
+
+  <ng-template #thenBlock>
+    <button (click)="toggle()">open</button>
+  </ng-template>
+
+  <ng-template #elseBlock>
+    <button (click)="toggle()">close</button>
+  </ng-template>
+
   <app-header></app-header>
 </header>
 <main [ngClass]="{'close-aside': close}">
