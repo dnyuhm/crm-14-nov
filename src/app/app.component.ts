@@ -11,7 +11,7 @@ export class AppComponent {
 
   constructor() {
     this.title = 'crm';
-    this.close = true;
+    this.close = false;
   }
 
   public toggle(): void {
