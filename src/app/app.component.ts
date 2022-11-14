@@ -7,8 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title: string;
+  public close: boolean;
 
   constructor() {
     this.title = 'crm';
+    this.close = false;
+  }
+
+  public toggle(): void {
+    this.close = !this.close;
   }
 }
