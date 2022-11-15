@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" *ngIf="collection$ |async as collection ">
   <thead>
     <tr>
       <th *ngFor="let header of headers">{{ header }}</th>
@@ -6,12 +6,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let order of collection">
-      <td>{{ order.typePresta }}</td>
+      <td>{{ order.typePresta |uppercase }}</td>
       <td>{{ order.client }}</td>
       <td>{{ order.nbJours }}</td>
       <td>{{ order.tjmHt }}</td>
-      <td>Total HT</td>
-      <td>Total TTC</td>
+      <td>{{ order.nbJours |total : order.tjmHt }}</td>
+      <td>{{ order.nbJours |total : order.tjmHt : order.tva }}</td>
       <td>{{ order.state }}</td>
     </tr>
   </tbody>
