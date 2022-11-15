@@ -1,4 +1,5 @@
 <table class="table" *ngIf="collection$ |async as collection ">
+  <!-- <pre>{{ collection |json }}</pre> -->
   <thead>
     <tr>
       <th *ngFor="let header of headers">{{ header }}</th>
@@ -9,9 +10,9 @@
       <td>{{ order.typePresta |uppercase }}</td>
       <td>{{ order.client }}</td>
       <td>{{ order.nbJours }}</td>
-      <td>{{ order.tjmHt }}</td>
-      <td>{{ order.nbJours |total : order.tjmHt }}</td>
-      <td>{{ order.nbJours |total : order.tjmHt : order.tva }}</td>
+      <td>{{ order.tjmHt |currency }}</td>
+      <td>{{ order.nbJours |total : order.tjmHt |currency }}</td>
+      <td>{{ order.nbJours |total : order.tjmHt : order.tva |currency }}</td>
       <td>{{ order.state }}</td>
     </tr>
   </tbody>
