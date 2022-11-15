@@ -9,11 +9,11 @@ import { Order } from '../models/order';
 })
 export class OrdersService {
   private urlApi: string;
-  public collection$: Observable<Order>;
+  public collection$: Observable<Order[]>;
 
   constructor(private httpClient: HttpClient) {
     this.urlApi = environment.urlApi;
-    this.collection$ = this.httpClient.get<Order>(`${this.urlApi}/orders`);
+    this.collection$ = this.httpClient.get<Order[]>(`${this.urlApi}/orders`);
 
     console.log(this.collection$);
   }
