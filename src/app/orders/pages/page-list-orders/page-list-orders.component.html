@@ -7,6 +7,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let order of collection">
+      <td>
+        <app-btn label="Edit" (click)="goToEdit(order.id)"></app-btn>
+      </td>
       <td>{{ order.typePresta |uppercase }}</td>
       <td>{{ order.client }}</td>
       <td>{{ order.nbJours }}</td>
